@@ -1,0 +1,13 @@
+{
+	"name": "omnissa-sdk-sample-webrtc-app",
+	"description": "Simple WSS Server for Signaling & static assets for testing",
+	"version": "0.0.1",
+	"private": false,
+	"scripts": {
+		"start": "node server/sigServer.js"
+	},
+	"dependencies": {
+		"express": "^5.1.0",
+		"ws": "^8.18.2"
+	}
+}

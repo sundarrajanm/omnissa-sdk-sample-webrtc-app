@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2018 Omnissa, LLC. All rights reserved.
+ * This product is protected by copyright and intellectual property laws in the
+ * United States and other countries as well as by international treaties.
+ * -- Omnissa Restricted
+ */
+/**
+ *
+ * HorizonWebRTCExtension.js
+ * Build: 13573728282
+ *
+ */
+!function(n){("function"!=typeof define||!define.amd)&&"object"==typeof module&&module.exports?module.exports=n():window.HorizonWebRTCExtension=n()}(function(n,o){"use strict";const T={GET_CLIENT_ID:"getClientId",GET_WSS_PORT:"getWssPort",GET_INFO:"getInfo",NOTIFY_CONTENT_READY:"notifyContentReady",NOTIFY_WINDOW_SESSION_CONNECTED:"notifyWindowSessionConnected",PAGE_UNLOADED:"pageUnloaded",POLL_CONTENT_READY:"pollContentReady",STOP_REDIRECTION:"stopRedir"},E={FOREGROUND_TO_CONTENT:"horizon.webrtcsdk.foregroundToContent",CONTENT_TO_FOREGROUND:"horizon.webrtcsdk.contentToForeground"};return new function(){var t,o=this,i=0,r={},d=!0,s=(this.onWindowSessionConnected,this.getHorizonClientID=function(){return new Promise(function(o,e){s({cmd:T.GET_CLIENT_ID},function(n){void 0!==n.clientId?o(n.clientId):e(n.error||"getHorizonClientID failed")})})},this.getHorizonWSSPort=function(){return new Promise(function(o,e){s({cmd:T.GET_WSS_PORT},function(n){void 0!==n.wssPort?o(n.wssPort):e(n.error||"getHorizonWSSPort failed")})})},function(n,o){var e;n.cmd==T.POLL_CONTENT_READY||t?(e=++i,n.seqId=e,r[e]=o,e={detail:void 0!==n?n:{}},window.dispatchEvent(new CustomEvent(E.FOREGROUND_TO_CONTENT,e))):(n.error="content is not ready",o(n),void 0===t&&(console.log("HorizonWebRTCExtension.toContentScript: content ready state is undefined, Start content state poll"),new Promise(function(o,e){s({cmd:T.POLL_CONTENT_READY},function(n){void 0!==n.ready?(t=n.ready,o(t)):e(n.error||"fail to pollContentReady")})})))}),c=function(n){"function"==typeof o.onWindowSessionConnected&&o.onWindowSessionConnected(n)};console.log("HorizonWebRTCExtension foreground register content callback"),window.addEventListener(E.CONTENT_TO_FOREGROUND,function(n){if(null===n.detail)console.log("HorizonWebRTCExtension.onContentScript: data is null in injected script");else{var o,e=n.detail;if(console.log("HorizonWebRTCExtension.onContentScript(): Received message from content script "+JSON.stringify(e)),"number"==typeof e.seqId&&0<e.seqId)n=e.seqId,o=r[n],delete r[n],void 0!==o&&"function"==typeof o&&o(e);else switch(e.cmd){case T.NOTIFY_CONTENT_READY:t=e.state;break;case T.NOTIFY_WINDOW_SESSION_CONNECTED:d=e.connected,c(d)}}})}});

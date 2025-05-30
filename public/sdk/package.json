@@ -1,0 +1,28 @@
+{
+    "name": "@euc-releases/horizon-webrtc-redir-sdk",
+    "version": "1.0.7",
+    "description": "The HorizonWebRtcRedirectionAPI provides a set of tools to enable WebRTC redirection features for Horizon environments. It supports peer connections, media stream management, device enumeration, and screen sharing functionalities.",
+    "main": "main.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "files": [
+        "HorizonWebRTCExtension.js",
+        "HorizonSDKforWebRTCRedir.js",
+        "main.js",
+        "README.md"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/euc-releases/horizon-webrtc-redir-sdk.git"
+    },
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com"
+    },
+    "author": "Omnissa",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/euc-releases/horizon-webrtc-redir-sdk/issues"
+    },
+    "homepage": "https://github.com/euc-releases/horizon-webrtc-redir-sdk#readme"
+  }
