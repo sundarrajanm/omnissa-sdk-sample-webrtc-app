@@ -5,7 +5,7 @@
  * -- Omnissa Restricted
  */
 
-const MessageType = {
+export const MessageType = {
 	ERROR: 50,
 	LOGIN: 200,
 	CALL_CTRL: 201,
@@ -15,6 +15,6 @@ const MessageType = {
 
 if (typeof module === 'object' && module.exports) {
 	module.exports = MessageType;
-} else {
+} else if (typeof window !== 'undefined') {
 	window.commonMsgType = MessageType;
 }

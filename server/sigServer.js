@@ -8,7 +8,7 @@
 const express = require("express");
 const path = require('path');
 const User = require("./user");
-const MessageType = require("../public/common/constant");
+const MessageType = require("../src/common/constant");
 const WebSocket = require("ws");
 
 const port = process.env.PORT || 8443;

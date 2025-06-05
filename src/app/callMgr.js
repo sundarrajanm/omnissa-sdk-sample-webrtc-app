@@ -7,7 +7,7 @@
 
 
 import Utils from "./utils.js";
-let MsgType = window.commonMsgType;
+import { MessageType as MsgType } from '../common/constant'
 
 export const SessionStatus = {
    IDLE: 0,

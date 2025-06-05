@@ -6,6 +6,8 @@
  */
 
 import  UI from "./ui.js";
+import '../sdk/HorizonWebRTCExtension'
+import '../sdk/HorizonSDKforWebRTCRedir'
 
 var Demo = Demo || function() {
    var WebRTCRedirApp = {};
@@ -218,7 +220,7 @@ var Demo = Demo || function() {
       };
       WebRTCRedirApp.callServerUrl = callServerUrl;
       if (WebRTCRedirApp.callServerUrl === "") {
-         console.error("App Main ===> callServerUrl is empty, will not be able to make calls");
+         console.error7("App Main ===> callServerUrl is empty, will not be able to make calls");
       }
 
       if (window.HorizonWebRTCExtension) {
