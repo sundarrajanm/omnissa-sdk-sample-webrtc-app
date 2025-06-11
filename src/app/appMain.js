@@ -185,15 +185,19 @@ var Demo = Demo || function() {
       };
 
       window.getHorizonWindowTitle = function () {
+         console.log("App Main ===> getHorizonWindowTitle called");
          if (window.top === window.self) {
+            console.log("App Main ===> getHorizonWindowTitle - top level window");
             // top level casse
             return document.title
          } else {
+            console.log("App Main ===> getHorizonWindowTitle - iframe case", topFrameTitle);
             // iframe case.
             if (topFrameTitle) {
                return topFrameTitle;
             }
             // Post message to top level.
+            console.log("App Main ===> getHorizonWindowTitle - posting msg to top...");
             window.top.postMessage({from: 'horizon-iframe', cmd:'getHorizonWindowTitle'}, '*');
             return undefined;
          }
@@ -201,7 +205,7 @@ var Demo = Demo || function() {
 
       window.onmessage = function(e) {
          // handle communication between iframe and parent
-         console.log(`Received message ${e.data}`);
+         console.log("App Main ===> getHorizonWindowTitle - received msg from top...", e.data);
          if (e.data && e.data.topFrameTitle) {
             topFrameTitle = e.data.topFrameTitle;
          }

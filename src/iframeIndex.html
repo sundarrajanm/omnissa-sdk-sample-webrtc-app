@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-    <input type="text" id="urlInput" value="https://jvc1:3000/webIndex.html?callServerUrl=wss://jvc1:8443">
+    <input type="text" id="urlInput" value="https://omnissa-sdk-sample-webrtc-app.onrender.com/webIndex.html?callServerUrl=wss://omnissa-sdk-sample-webrtc-app.onrender.com">
     <button onclick="loadIframe()">Load</button>
     <iframe id="displayFrame"></iframe>
 
@@ -56,8 +56,10 @@
       window.onload = loadIframe;
       window.onmessage = function(e) {
       if (iframe && e.data.from === 'horizon-iframe' && e.data.cmd === 'getHorizonWindowTitle') {
+          console.log("Iframe top received from App Main ===> getHorizonWindowTitle", e.data);
          iframe.contentWindow.postMessage({ topFrameTitle: document.title} , '*');
-      }
+          console.log("Iframe top sending to App Main ===> ", { topFrameTitle: document.title});
+        }
       }
 
     </script>
